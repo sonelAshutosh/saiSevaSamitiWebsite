@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import {
   Users,
@@ -155,10 +156,10 @@ export function AdminNav() {
                       tooltip={item.title}
                       className="cursor-pointer"
                     >
-                      <a href={item.url}>
+                      <Link href={item.url}>
                         <Icon className="h-4 w-4" />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 )

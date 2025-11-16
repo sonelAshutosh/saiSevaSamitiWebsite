@@ -23,7 +23,10 @@ import { getActivitiesNumber } from '@/app/admin/activities-number/actions'
 import { getAllMembers } from '@/app/admin/members/actions'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { SlideIn } from '@/components/animations/SlideIn'
-import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer'
+import {
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/animations/StaggerContainer'
 
 interface ActivityNumbers {
   happyPeople: number
@@ -138,7 +141,10 @@ export default function HomePage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <ParallaxHero imageSrc="/images/hero-section-3.jpg" className="min-h-[600px] md:min-h-[700px]">
+      <ParallaxHero
+        imageSrc="/images/banner-image-bg.jpg"
+        className="min-h-[600px] md:min-h-[700px]"
+      >
         <div className="container-custom py-20 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <SlideIn direction="left" delay={0.1}>
@@ -178,7 +184,7 @@ export default function HomePage() {
               </div>
             </SlideIn>
 
-            <SlideIn direction="right" delay={0.2}>
+            {/* <SlideIn direction="right" delay={0.2}>
               <div className="relative h-[400px] lg:h-[500px]">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl rotate-3"></div>
                 <div className="relative h-full rounded-3xl overflow-hidden">
@@ -191,7 +197,7 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-            </SlideIn>
+            </SlideIn> */}
           </div>
         </div>
       </ParallaxHero>
@@ -215,7 +221,10 @@ export default function HomePage() {
             ))}
           </div>
         ) : (
-          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerContainer
+            staggerDelay={0.1}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {stats.map((stat, index) => (
               <StaggerItem key={index}>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -254,14 +263,19 @@ export default function HomePage() {
           </p>
         </div>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <StaggerContainer
+          staggerDelay={0.15}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           {services.map((service, index) => (
             <StaggerItem key={index}>
               <Card className="border-2 hover:border-primary hover:shadow-lg transition-all duration-300 h-full">
                 <CardContent className="p-6 space-y-4 h-full flex flex-col">
                   <div className="text-5xl">{service.icon}</div>
                   <h3 className="text-xl font-semibold">{service.title}</h3>
-                  <p className="text-muted-foreground flex-1">{service.description}</p>
+                  <p className="text-muted-foreground flex-1">
+                    {service.description}
+                  </p>
                 </CardContent>
               </Card>
             </StaggerItem>
@@ -307,16 +321,15 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-2xl font-bold">Our Vision</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  A world where every individual has access to basic necessities,
-                  healthcare, and opportunities for growth, regardless of their
-                  socio-economic background.
+                  A world where every individual has access to basic
+                  necessities, healthcare, and opportunities for growth,
+                  regardless of their socio-economic background.
                 </p>
               </CardContent>
             </Card>
           </SlideIn>
         </div>
       </Section>
-
 
       {/* Team Section */}
       {isLoading ? (
@@ -354,7 +367,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggerContainer
+            staggerDelay={0.1}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {topMembers.map((member) => (
               <StaggerItem key={member.id}>
                 <Card className="text-center hover:shadow-lg transition-shadow">

@@ -63,20 +63,20 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.01 240);
 
-  /* Primary - Emerald Green (Trust, Growth, Hope) */
-  --primary: oklch(0.55 0.15 165);
+  /* Primary - Trustworthy Blue (Main Brand Color) */
+  --primary: oklch(0.55 0.15 230);
   --primary-foreground: oklch(0.99 0 0);
 
-  /* Secondary - Orange (Energy, Warmth, Action) */
-  --secondary: oklch(0.66 0.19 35);
-  --secondary-foreground: oklch(0.99 0 0);
+  /* Secondary - Light Blue (Supporting Actions) */
+  --secondary: oklch(0.70 0.12 235);
+  --secondary-foreground: oklch(0.15 0.01 240);
 
   /* Muted Colors */
   --muted: oklch(0.96 0.005 240);
   --muted-foreground: oklch(0.5 0.01 240);
 
-  /* Accent - Sky Blue (Clarity, Peace) */
-  --accent: oklch(0.6 0.14 230);
+  /* Accent - Bright Blue (Highlights & CTA) */
+  --accent: oklch(0.65 0.18 225);
   --accent-foreground: oklch(0.99 0 0);
 
   /* Success - Green */
@@ -94,24 +94,24 @@
   /* Border & Input */
   --border: oklch(0.9 0.005 240);
   --input: oklch(0.9 0.005 240);
-  --ring: oklch(0.55 0.15 165);
+  --ring: oklch(0.55 0.15 230);
 
-  /* Chart Colors */
-  --chart-1: oklch(0.55 0.15 165);
-  --chart-2: oklch(0.66 0.19 35);
-  --chart-3: oklch(0.6 0.14 230);
-  --chart-4: oklch(0.6 0.17 150);
-  --chart-5: oklch(0.75 0.15 75);
+  /* Chart Colors - Blue Palette */
+  --chart-1: oklch(0.55 0.15 230);
+  --chart-2: oklch(0.65 0.18 225);
+  --chart-3: oklch(0.70 0.12 235);
+  --chart-4: oklch(0.60 0.15 220);
+  --chart-5: oklch(0.75 0.10 240);
 
   /* Sidebar Colors */
   --sidebar: oklch(0.98 0 0);
   --sidebar-foreground: oklch(0.15 0.01 240);
-  --sidebar-primary: oklch(0.55 0.15 165);
+  --sidebar-primary: oklch(0.55 0.15 230);
   --sidebar-primary-foreground: oklch(0.99 0 0);
   --sidebar-accent: oklch(0.96 0.005 240);
   --sidebar-accent-foreground: oklch(0.15 0.01 240);
   --sidebar-border: oklch(0.9 0.005 240);
-  --sidebar-ring: oklch(0.55 0.15 165);
+  --sidebar-ring: oklch(0.55 0.15 230);
 }
 
 .dark {
@@ -127,20 +127,20 @@
   --popover: oklch(0.2 0.01 240);
   --popover-foreground: oklch(0.98 0 0);
 
-  /* Primary - Emerald Green (Brighter in dark mode) */
-  --primary: oklch(0.65 0.17 165);
+  /* Primary - Trustworthy Blue (Brighter in dark mode) */
+  --primary: oklch(0.65 0.17 230);
   --primary-foreground: oklch(0.15 0.01 240);
 
-  /* Secondary - Orange (Brighter in dark mode) */
-  --secondary: oklch(0.7 0.2 35);
+  /* Secondary - Light Blue (Brighter in dark mode) */
+  --secondary: oklch(0.75 0.14 235);
   --secondary-foreground: oklch(0.15 0.01 240);
 
   /* Muted Colors */
   --muted: oklch(0.25 0.01 240);
   --muted-foreground: oklch(0.65 0.01 240);
 
-  /* Accent - Sky Blue (Brighter in dark mode) */
-  --accent: oklch(0.65 0.15 230);
+  /* Accent - Bright Blue (Brighter in dark mode) */
+  --accent: oklch(0.70 0.18 225);
   --accent-foreground: oklch(0.15 0.01 240);
 
   /* Success - Green */
@@ -158,24 +158,24 @@
   /* Border & Input */
   --border: oklch(0.3 0.01 240);
   --input: oklch(0.3 0.01 240);
-  --ring: oklch(0.65 0.17 165);
+  --ring: oklch(0.65 0.17 230);
 
-  /* Chart Colors */
-  --chart-1: oklch(0.65 0.17 165);
-  --chart-2: oklch(0.7 0.2 35);
-  --chart-3: oklch(0.65 0.15 230);
-  --chart-4: oklch(0.65 0.18 150);
-  --chart-5: oklch(0.78 0.16 75);
+  /* Chart Colors - Blue Palette */
+  --chart-1: oklch(0.65 0.17 230);
+  --chart-2: oklch(0.70 0.18 225);
+  --chart-3: oklch(0.75 0.14 235);
+  --chart-4: oklch(0.65 0.15 220);
+  --chart-5: oklch(0.78 0.12 240);
 
   /* Sidebar Colors */
   --sidebar: oklch(0.18 0.01 240);
   --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.65 0.17 165);
+  --sidebar-primary: oklch(0.65 0.17 230);
   --sidebar-primary-foreground: oklch(0.15 0.01 240);
   --sidebar-accent: oklch(0.25 0.01 240);
   --sidebar-accent-foreground: oklch(0.98 0 0);
   --sidebar-border: oklch(0.3 0.01 240);
-  --sidebar-ring: oklch(0.65 0.17 165);
+  --sidebar-ring: oklch(0.65 0.17 230);
 }
 
 @layer base {

@@ -2,7 +2,17 @@
 
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { Target, Eye, Heart, Users, Award, Sparkles, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  Target,
+  Eye,
+  Heart,
+  Users,
+  Award,
+  Sparkles,
+  UserCheck,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -13,7 +23,10 @@ import { getMembersPaginated } from '@/app/admin/members/actions'
 import { getVolunteersPaginated } from '@/app/admin/volunteers/actions'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { SlideIn } from '@/components/animations/SlideIn'
-import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer'
+import {
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/animations/StaggerContainer'
 
 interface Member {
   id: string
@@ -55,7 +68,9 @@ export default function AboutUsPage() {
           setMembersTotalPages(membersResult.totalPages || 1)
           // Scroll to members section on page change
           if (membersPage > 1) {
-            document.getElementById('members-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            document
+              .getElementById('members-section')
+              ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
           }
         }
       } catch (error) {
@@ -73,13 +88,20 @@ export default function AboutUsPage() {
     const fetchVolunteers = async () => {
       setVolunteersLoading(true)
       try {
-        const volunteersResult = await getVolunteersPaginated(volunteersPage, 4, true, true)
+        const volunteersResult = await getVolunteersPaginated(
+          volunteersPage,
+          4,
+          true,
+          true
+        )
         if (volunteersResult.success && volunteersResult.volunteers) {
           setVolunteers(volunteersResult.volunteers)
           setVolunteersTotalPages(volunteersResult.totalPages || 1)
           // Scroll to volunteers section on page change
           if (volunteersPage > 1) {
-            document.getElementById('volunteers-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            document
+              .getElementById('volunteers-section')
+              ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
           }
         }
       } catch (error) {
@@ -123,17 +145,23 @@ export default function AboutUsPage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <ParallaxHero imageSrc="/images/know-about.jpg" className="min-h-[500px] md:min-h-[600px]">
+      <ParallaxHero
+        imageSrc="/images/about-us-image.jpg"
+        className="min-h-[500px] md:min-h-[600px]"
+      >
         <div className="container-custom py-20 md:py-28">
           <FadeIn delay={0.1}>
             <div className="text-center space-y-6 max-w-4xl mx-auto">
-              <Badge className="mx-auto w-fit bg-white/10 border-white/30 text-white hover:bg-white/20">About Our Organization</Badge>
+              <Badge className="mx-auto w-fit bg-white/10 border-white/30 text-white hover:bg-white/20">
+                About Our Organization
+              </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
                 Help the <span className="text-white/90">Helpless</span>
               </h1>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-                Sai Seva Samiti is a non-profit organization dedicated to serving humanity with
-                compassion, providing essential services and support to those who need it most.
+                Sai Seva Samiti is a non-profit organization dedicated to
+                serving humanity with compassion, providing essential services
+                and support to those who need it most.
               </p>
             </div>
           </FadeIn>
@@ -178,9 +206,9 @@ export default function AboutUsPage() {
                 </div>
                 <h3 className="text-2xl font-bold">Our Vision</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  A world where every individual has access to basic necessities,
-                  healthcare, and opportunities for growth, regardless of their
-                  socio-economic background.
+                  A world where every individual has access to basic
+                  necessities, healthcare, and opportunities for growth,
+                  regardless of their socio-economic background.
                 </p>
               </CardContent>
             </Card>
@@ -197,7 +225,10 @@ export default function AboutUsPage() {
           <h2 className="text-3xl md:text-4xl font-bold">What We Stand For</h2>
         </div>
 
-        <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <StaggerContainer
+          staggerDelay={0.15}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
           {values.map((value, index) => (
             <StaggerItem key={index}>
               <Card className="text-center hover:shadow-lg transition-shadow">
@@ -245,8 +276,8 @@ export default function AboutUsPage() {
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold">Meet Our Members</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Dedicated leaders committed to making a positive impact in the community through
-              service and compassion.
+              Dedicated leaders committed to making a positive impact in the
+              community through service and compassion.
             </p>
           </div>
 
@@ -255,18 +286,28 @@ export default function AboutUsPage() {
               <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-lg min-h-[400px]">
                 <div className="text-center">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-2"></div>
-                  <p className="text-sm text-muted-foreground">Loading members...</p>
+                  <p className="text-sm text-muted-foreground">
+                    Loading members...
+                  </p>
                 </div>
               </div>
             )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {members.map((member) => (
-                <Card key={member.id} className="hover:shadow-lg transition-shadow">
+                <Card
+                  key={member.id}
+                  className="hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-6 space-y-4">
                     <div className="h-40 w-40 mx-auto rounded-full bg-muted overflow-hidden relative">
                       {member.image ? (
-                        <Image src={member.image} alt={member.name} fill className="object-cover" />
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover"
+                        />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <UserCheck className="h-20 w-20 text-muted-foreground/50" />
@@ -276,7 +317,9 @@ export default function AboutUsPage() {
                     <div className="text-center space-y-1">
                       <h3 className="font-semibold text-lg">{member.name}</h3>
                       {member.designation && (
-                        <p className="text-sm text-primary font-medium">{member.designation}</p>
+                        <p className="text-sm text-primary font-medium">
+                          {member.designation}
+                        </p>
                       )}
                     </div>
                   </CardContent>
@@ -302,7 +345,11 @@ export default function AboutUsPage() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setMembersPage((prev) => Math.min(prev + 1, membersTotalPages))}
+                onClick={() =>
+                  setMembersPage((prev) =>
+                    Math.min(prev + 1, membersTotalPages)
+                  )
+                }
                 disabled={membersPage === membersTotalPages}
               >
                 Next
@@ -320,7 +367,9 @@ export default function AboutUsPage() {
             <Badge variant="outline" className="mx-auto w-fit">
               Our Volunteers
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold">Meet Our Volunteers</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Meet Our Volunteers
+            </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[1, 2, 3, 4].map((i) => (
@@ -342,10 +391,12 @@ export default function AboutUsPage() {
             <Badge variant="outline" className="mx-auto w-fit">
               Our Volunteers
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold">Meet Our Volunteers</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Meet Our Volunteers
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Passionate individuals volunteering their time and skills to serve the community and
-              make a difference.
+              Passionate individuals volunteering their time and skills to serve
+              the community and make a difference.
             </p>
           </div>
 
@@ -354,14 +405,19 @@ export default function AboutUsPage() {
               <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-lg min-h-[300px]">
                 <div className="text-center">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-2"></div>
-                  <p className="text-sm text-muted-foreground">Loading volunteers...</p>
+                  <p className="text-sm text-muted-foreground">
+                    Loading volunteers...
+                  </p>
                 </div>
               </div>
             )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {volunteers.map((volunteer) => (
-                <Card key={volunteer.id} className="hover:shadow-lg transition-shadow">
+                <Card
+                  key={volunteer.id}
+                  className="hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-6 space-y-4">
                     <div className="h-32 w-32 mx-auto rounded-full bg-muted overflow-hidden relative">
                       {volunteer.image ? (
@@ -378,9 +434,13 @@ export default function AboutUsPage() {
                       )}
                     </div>
                     <div className="text-center space-y-1">
-                      <h3 className="font-semibold text-lg">{volunteer.name}</h3>
+                      <h3 className="font-semibold text-lg">
+                        {volunteer.name}
+                      </h3>
                       {volunteer.role && (
-                        <p className="text-sm text-muted-foreground">{volunteer.role}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {volunteer.role}
+                        </p>
                       )}
                     </div>
                   </CardContent>
@@ -394,7 +454,9 @@ export default function AboutUsPage() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setVolunteersPage((prev) => Math.max(prev - 1, 1))}
+                onClick={() =>
+                  setVolunteersPage((prev) => Math.max(prev - 1, 1))
+                }
                 disabled={volunteersPage === 1}
               >
                 <ChevronLeft className="h-4 w-4 mr-1" />
@@ -406,7 +468,11 @@ export default function AboutUsPage() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setVolunteersPage((prev) => Math.min(prev + 1, volunteersTotalPages))}
+                onClick={() =>
+                  setVolunteersPage((prev) =>
+                    Math.min(prev + 1, volunteersTotalPages)
+                  )
+                }
                 disabled={volunteersPage === volunteersTotalPages}
               >
                 Next
@@ -422,8 +488,8 @@ export default function AboutUsPage() {
         <div className="text-center space-y-6 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold">Join Our Mission</h2>
           <p className="text-lg opacity-90">
-            Whether through donations, volunteering, or spreading awareness, you can be part of the
-            change. Together, we can build a better tomorrow.
+            Whether through donations, volunteering, or spreading awareness, you
+            can be part of the change. Together, we can build a better tomorrow.
           </p>
         </div>
       </Section>

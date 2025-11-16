@@ -2,7 +2,14 @@
 
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { ImageIcon, Sparkles, X, Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  ImageIcon,
+  Sparkles,
+  X,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -52,7 +59,12 @@ export default function GalleryPage() {
 
               // Check if date is valid
               if (isNaN(imgDate.getTime())) {
-                console.error('Invalid image date:', img.date, 'for image:', img.id)
+                console.error(
+                  'Invalid image date:',
+                  img.date,
+                  'for image:',
+                  img.id
+                )
                 return
               }
 
@@ -67,14 +79,19 @@ export default function GalleryPage() {
           })
 
           // Convert to Album array
-          const albumsArray: Album[] = Array.from(albumMap.entries()).map(([dateKey, imgs]) => ({
-            dateKey: dateKey, // Store the ISO date
-            images: imgs,
-            coverImage: imgs[0].image,
-          }))
+          const albumsArray: Album[] = Array.from(albumMap.entries()).map(
+            ([dateKey, imgs]) => ({
+              dateKey: dateKey, // Store the ISO date
+              images: imgs,
+              coverImage: imgs[0].image,
+            })
+          )
 
           // Sort albums by date (newest first)
-          albumsArray.sort((a, b) => new Date(b.dateKey).getTime() - new Date(a.dateKey).getTime())
+          albumsArray.sort(
+            (a, b) =>
+              new Date(b.dateKey).getTime() - new Date(a.dateKey).getTime()
+          )
 
           setAlbums(albumsArray)
         }
@@ -152,17 +169,22 @@ export default function GalleryPage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <ParallaxHero imageSrc="/images/banner-image-bg.jpg" className="min-h-[500px] md:min-h-[600px]">
+      <ParallaxHero
+        imageSrc="/images/hero-section-3.jpg"
+        className="min-h-[500px] md:min-h-[600px]"
+      >
         <div className="container-custom py-20 md:py-28">
           <FadeIn delay={0.1}>
             <div className="text-center space-y-6 max-w-4xl mx-auto">
-              <Badge className="mx-auto w-fit bg-white/10 border-white/30 text-white hover:bg-white/20">Our Memories</Badge>
+              <Badge className="mx-auto w-fit bg-white/10 border-white/30 text-white hover:bg-white/20">
+                Our Memories
+              </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
                 Photo <span className="text-white/90">Gallery</span>
               </h1>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-                Capturing moments of compassion, service, and community impact through our various
-                initiatives and campaigns.
+                Capturing moments of compassion, service, and community impact
+                through our various initiatives and campaigns.
               </p>
             </div>
           </FadeIn>
@@ -199,7 +221,8 @@ export default function GalleryPage() {
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold">Our Albums</h2>
                 <p className="text-muted-foreground mt-1">
-                  Showing {albums.length} {albums.length === 1 ? 'album' : 'albums'}
+                  Showing {albums.length}{' '}
+                  {albums.length === 1 ? 'album' : 'albums'}
                 </p>
               </div>
             </div>
@@ -227,8 +250,13 @@ export default function GalleryPage() {
                       )}
                       {/* Overlay on hover */}
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
-                        <p className="text-white font-medium text-lg mb-2">Click to view</p>
-                        <Badge variant="secondary">{album.images.length} {album.images.length === 1 ? 'photo' : 'photos'}</Badge>
+                        <p className="text-white font-medium text-lg mb-2">
+                          Click to view
+                        </p>
+                        <Badge variant="secondary">
+                          {album.images.length}{' '}
+                          {album.images.length === 1 ? 'photo' : 'photos'}
+                        </Badge>
                       </div>
                     </div>
 
@@ -236,10 +264,13 @@ export default function GalleryPage() {
                     <div className="p-4 space-y-2">
                       <div className="flex items-center gap-2">
                         <Calendar className="h-5 w-5 text-primary" />
-                        <span className="font-semibold text-lg">{formatDate(album.dateKey)}</span>
+                        <span className="font-semibold text-lg">
+                          {formatDate(album.dateKey)}
+                        </span>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        {album.images.length} {album.images.length === 1 ? 'photo' : 'photos'}
+                        {album.images.length}{' '}
+                        {album.images.length === 1 ? 'photo' : 'photos'}
                       </p>
                     </div>
                   </Card>
@@ -268,7 +299,9 @@ export default function GalleryPage() {
 
           {/* Album Title */}
           <div className="absolute top-4 left-4 text-white z-10">
-            <h2 className="text-2xl font-bold">{formatDate(selectedAlbum.dateKey)}</h2>
+            <h2 className="text-2xl font-bold">
+              {formatDate(selectedAlbum.dateKey)}
+            </h2>
             <p className="text-sm text-white/70">
               {currentImageIndex + 1} / {selectedAlbum.images.length}
             </p>

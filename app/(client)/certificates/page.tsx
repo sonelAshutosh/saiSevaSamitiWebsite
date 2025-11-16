@@ -11,7 +11,10 @@ import Section from '@/components/layout/Section'
 import ParallaxHero from '@/components/layout/ParallaxHero'
 import { getAllCertificates } from '@/app/admin/certificates/actions'
 import { FadeIn } from '@/components/animations/FadeIn'
-import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer'
+import {
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/animations/StaggerContainer'
 
 interface Certificate {
   id: string
@@ -23,7 +26,8 @@ interface Certificate {
 export default function CertificatesPage() {
   const [certificates, setCertificates] = useState<Certificate[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null)
+  const [selectedCertificate, setSelectedCertificate] =
+    useState<Certificate | null>(null)
 
   useEffect(() => {
     const fetchCertificates = async () => {
@@ -47,17 +51,23 @@ export default function CertificatesPage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <ParallaxHero imageSrc="/images/banner-image-3.jpg" className="min-h-[500px] md:min-h-[600px]">
+      <ParallaxHero
+        imageSrc="/images/certificates-bg.jpg"
+        className="min-h-[500px] md:min-h-[600px]"
+      >
         <div className="container-custom py-20 md:py-28">
           <FadeIn delay={0.1}>
             <div className="text-center space-y-6 max-w-4xl mx-auto">
-              <Badge className="mx-auto w-fit bg-white/10 border-white/30 text-white hover:bg-white/20">Recognition</Badge>
+              <Badge className="mx-auto w-fit bg-white/10 border-white/30 text-white hover:bg-white/20">
+                Recognition
+              </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
                 Our <span className="text-white/90">Certificates</span> & Awards
               </h1>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-                Honoring our dedication to community service with recognition from government and social
-                organizations for our impactful initiatives.
+                Honoring our dedication to community service with recognition
+                from government and social organizations for our impactful
+                initiatives.
               </p>
             </div>
           </FadeIn>
@@ -83,7 +93,9 @@ export default function CertificatesPage() {
             <div className="h-24 w-24 mx-auto mb-6 rounded-full bg-muted flex items-center justify-center">
               <Award className="h-12 w-12 text-muted-foreground" />
             </div>
-            <h3 className="text-2xl font-semibold mb-2">No Certificates Found</h3>
+            <h3 className="text-2xl font-semibold mb-2">
+              No Certificates Found
+            </h3>
             <p className="text-muted-foreground">
               Certificates and awards will be displayed here once available.
             </p>
@@ -92,15 +104,21 @@ export default function CertificatesPage() {
           <>
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold">Our Achievements</h2>
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  Our Achievements
+                </h2>
                 <p className="text-muted-foreground mt-1">
-                  {certificates.length} {certificates.length === 1 ? 'certificate' : 'certificates'}{' '}
+                  {certificates.length}{' '}
+                  {certificates.length === 1 ? 'certificate' : 'certificates'}{' '}
                   received
                 </p>
               </div>
             </div>
 
-            <StaggerContainer staggerDelay={0.05} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <StaggerContainer
+              staggerDelay={0.05}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
               {certificates.map((cert) => (
                 <StaggerItem key={cert.id}>
                   <Card
@@ -132,7 +150,9 @@ export default function CertificatesPage() {
                       <div className="flex items-start gap-2">
                         <Award className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                         <div className="flex-1">
-                          <h3 className="font-semibold text-lg line-clamp-2">{cert.name}</h3>
+                          <h3 className="font-semibold text-lg line-clamp-2">
+                            {cert.name}
+                          </h3>
                           {cert.issuedBy && (
                             <p className="text-sm text-muted-foreground mt-1">
                               Issued by: {cert.issuedBy}
@@ -189,7 +209,8 @@ export default function CertificatesPage() {
               <h2 className="text-2xl font-bold">{selectedCertificate.name}</h2>
               {selectedCertificate.issuedBy && (
                 <p className="text-muted-foreground">
-                  <span className="font-medium">Issued by:</span> {selectedCertificate.issuedBy}
+                  <span className="font-medium">Issued by:</span>{' '}
+                  {selectedCertificate.issuedBy}
                 </p>
               )}
             </div>
@@ -201,10 +222,12 @@ export default function CertificatesPage() {
       {!isLoading && certificates.length > 0 && (
         <Section className="gradient-secondary text-secondary-foreground">
           <div className="text-center space-y-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold">Join Us in Making a Difference</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Join Us in Making a Difference
+            </h2>
             <p className="text-lg opacity-90">
-              These recognitions inspire us to continue our mission of serving communities with
-              dedication and compassion.
+              These recognitions inspire us to continue our mission of serving
+              communities with dedication and compassion.
             </p>
           </div>
         </Section>

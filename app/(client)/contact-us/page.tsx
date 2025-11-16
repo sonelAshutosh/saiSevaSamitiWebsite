@@ -14,7 +14,10 @@ import { toast } from 'sonner'
 import { createContactSubmission } from '@/app/admin/contact-us/actions'
 import { FadeIn } from '@/components/animations/FadeIn'
 import { SlideIn } from '@/components/animations/SlideIn'
-import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer'
+import {
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/animations/StaggerContainer'
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -29,7 +32,12 @@ export default function ContactUsPage() {
     e.preventDefault()
 
     // Validation
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
       toast.error('Please fill in all fields')
       return
     }
@@ -117,17 +125,22 @@ export default function ContactUsPage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <ParallaxHero imageSrc="/images/banner-image-bg.jpg" className="min-h-[500px] md:min-h-[600px]">
+      <ParallaxHero
+        imageSrc="/images/contact-us.jpg"
+        className="min-h-[500px] md:min-h-[600px]"
+      >
         <div className="container-custom py-20 md:py-28">
           <FadeIn delay={0.1}>
             <div className="text-center space-y-6 max-w-4xl mx-auto">
-              <Badge className="mx-auto w-fit bg-white/10 border-white/30 text-white hover:bg-white/20">Get In Touch</Badge>
+              <Badge className="mx-auto w-fit bg-white/10 border-white/30 text-white hover:bg-white/20">
+                Get In Touch
+              </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
                 Contact <span className="text-white/90">Us</span>
               </h1>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-                Have questions or want to get involved? We'd love to hear from you. Reach out and let's
-                make a difference together.
+                Have questions or want to get involved? We'd love to hear from
+                you. Reach out and let's make a difference together.
               </p>
             </div>
           </FadeIn>
@@ -136,12 +149,17 @@ export default function ContactUsPage() {
 
       {/* Contact Info Cards */}
       <Section shade="primary" className="!py-16">
-        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerContainer
+          staggerDelay={0.08}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {contactInfo.map((info, index) => (
             <StaggerItem key={index}>
               <Card className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full border-2 border-transparent hover:border-primary/20">
                 <CardContent className="p-8 text-center space-y-4">
-                  <div className={`h-16 w-16 rounded-2xl ${info.bgColor} mx-auto flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                  <div
+                    className={`h-16 w-16 rounded-2xl ${info.bgColor} mx-auto flex items-center justify-center group-hover:scale-110 transition-transform`}
+                  >
                     <info.icon className={`h-8 w-8 ${info.color}`} />
                   </div>
                   <div>
@@ -154,7 +172,9 @@ export default function ContactUsPage() {
                         <span>{info.value}</span>
                       </a>
                     ) : (
-                      <p className="text-muted-foreground text-sm leading-relaxed">{info.value}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {info.value}
+                      </p>
                     )}
                   </div>
                 </CardContent>
@@ -170,9 +190,12 @@ export default function ContactUsPage() {
           <Badge variant="outline" className="mx-auto w-fit">
             Send a Message
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold">Get In Touch With Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Get In Touch With Us
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a question or want to learn more about our work? Fill out the form below and our team will get back to you as soon as possible.
+            Have a question or want to learn more about our work? Fill out the
+            form below and our team will get back to you as soon as possible.
           </p>
         </div>
 
@@ -191,7 +214,9 @@ export default function ContactUsPage() {
                           type="text"
                           placeholder="John Doe"
                           value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, name: e.target.value })
+                          }
                           disabled={isSubmitting}
                           required
                         />
@@ -204,7 +229,9 @@ export default function ContactUsPage() {
                           type="email"
                           placeholder="john@example.com"
                           value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, email: e.target.value })
+                          }
                           disabled={isSubmitting}
                           required
                         />
@@ -218,7 +245,9 @@ export default function ContactUsPage() {
                         type="text"
                         placeholder="How can we help you?"
                         value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, subject: e.target.value })
+                        }
                         disabled={isSubmitting}
                         required
                       />
@@ -230,7 +259,9 @@ export default function ContactUsPage() {
                         id="message"
                         placeholder="Tell us more about your inquiry..."
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
                         className="resize-none flex-1"
                         disabled={isSubmitting}
                         required
@@ -262,49 +293,59 @@ export default function ContactUsPage() {
           <SlideIn direction="right" delay={0.2}>
             <Card className="border-2 border-primary/20 shadow-lg h-full flex flex-col">
               <CardContent className="p-8 space-y-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-6">Why Contact Us?</h3>
-                    <ul className="space-y-4">
-                      <li className="flex items-start gap-3">
-                        <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                          <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
-                        </div>
-                        <span className="text-muted-foreground leading-relaxed">Learn more about our programs and initiatives</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                          <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
-                        </div>
-                        <span className="text-muted-foreground leading-relaxed">Volunteer opportunities and how to get involved</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                          <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
-                        </div>
-                        <span className="text-muted-foreground leading-relaxed">Partnership and collaboration inquiries</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                          <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
-                        </div>
-                        <span className="text-muted-foreground leading-relaxed">Donation information and support</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="pt-6 border-t">
-                    <div className="flex items-start gap-3 mb-3">
-                      <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <h4 className="font-semibold mb-2">Quick Response</h4>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          We aim to respond to all inquiries within 24-48 hours during business days. For urgent matters, please call us directly.
-                        </p>
+                <div>
+                  <h3 className="text-2xl font-bold mb-6">Why Contact Us?</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
                       </div>
+                      <span className="text-muted-foreground leading-relaxed">
+                        Learn more about our programs and initiatives
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
+                      </div>
+                      <span className="text-muted-foreground leading-relaxed">
+                        Volunteer opportunities and how to get involved
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
+                      </div>
+                      <span className="text-muted-foreground leading-relaxed">
+                        Partnership and collaboration inquiries
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
+                      </div>
+                      <span className="text-muted-foreground leading-relaxed">
+                        Donation information and support
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="pt-6 border-t">
+                  <div className="flex items-start gap-3 mb-3">
+                    <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold mb-2">Quick Response</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        We aim to respond to all inquiries within 24-48 hours
+                        during business days. For urgent matters, please call us
+                        directly.
+                      </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </CardContent>
+            </Card>
           </SlideIn>
         </div>
       </Section>
@@ -317,8 +358,8 @@ export default function ContactUsPage() {
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold">Visit Us</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Come visit our office to learn more about our work and how you can contribute to making a
-            difference in the community.
+            Come visit our office to learn more about our work and how you can
+            contribute to making a difference in the community.
           </p>
         </div>
 
@@ -343,8 +384,9 @@ export default function ContactUsPage() {
         <div className="text-center space-y-6 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold">We're Here to Help</h2>
           <p className="text-lg opacity-90 leading-relaxed">
-            Whether you want to volunteer, make a donation, partner with us, or simply learn more about
-            our work, we'd love to hear from you. Reach out today and join us in making a difference.
+            Whether you want to volunteer, make a donation, partner with us, or
+            simply learn more about our work, we'd love to hear from you. Reach
+            out today and join us in making a difference.
           </p>
         </div>
       </Section>

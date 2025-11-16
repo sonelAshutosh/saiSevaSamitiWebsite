@@ -9,7 +9,6 @@ interface UserResponse {
   id: string
   name: string
   email: string
-  createdAt?: string
 }
 
 export async function getAllUsers(): Promise<{
@@ -28,7 +27,6 @@ export async function getAllUsers(): Promise<{
         id: user._id.toString(),
         name: user.name,
         email: user.email,
-        createdAt: user.createdAt?.toString(),
       })),
     }
   } catch (error) {

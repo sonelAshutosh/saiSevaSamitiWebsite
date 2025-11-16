@@ -25,12 +25,21 @@ export async function getActivitiesNumber(): Promise<{
 
     // If no record exists, create one with default values
     if (!activitiesNumber) {
-      activitiesNumber = await ActivitiesNumber.create({
+      await ActivitiesNumber.create({
         happyPeople: 0,
         offices: 0,
         staff: 0,
         volunteers: 0,
       })
+      // Fetch the newly created record as a lean object
+      activitiesNumber = await ActivitiesNumber.findOne({}).lean()
+    }
+
+    if (!activitiesNumber) {
+      return {
+        success: false,
+        message: 'Failed to create activities numbers',
+      }
     }
 
     return {

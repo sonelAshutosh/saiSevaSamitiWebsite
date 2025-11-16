@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import {
   Users,
@@ -131,8 +132,15 @@ export function AdminNav() {
     <Sidebar>
       <SidebarHeader className="border-border border-b px-6 py-2.5">
         <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <HandHeart className="h-5 w-5" />
+          <div className="h-12 w-12 relative rounded-lg overflow-hidden">
+            <Image
+              src="/images/logo-image.jpg"
+              alt="Sai Seva Samiti Logo"
+              fill
+              className="object-cover"
+              quality={100}
+              priority
+            />
           </div>
           <div>
             <h2 className="text-lg font-semibold">Sai Seva Samiti</h2>

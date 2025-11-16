@@ -83,24 +83,24 @@ export default function ContactUsPage() {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+91 98765 43210',
-      link: 'tel:+919876543210',
+      value: '+91 94605 22700',
+      link: 'tel:+919460522700',
       color: 'text-primary',
       bgColor: 'bg-primary/10',
     },
     {
       icon: Mail,
       title: 'Email',
-      value: 'contact@saiseva.org',
-      link: 'mailto:contact@saiseva.org',
+      value: 'saisevasamiti.nagaur@gmail.com',
+      link: 'mailto:saisevasamiti.nagaur@gmail.com',
       color: 'text-secondary',
       bgColor: 'bg-secondary/10',
     },
     {
       icon: MapPin,
       title: 'Address',
-      value: '123 Seva Street, Mumbai, Maharashtra 400001',
-      link: null,
+      value: 'Nagaur, Rajasthan 341001',
+      link: 'https://maps.app.goo.gl/UWa7egPUuGz5jSnv8',
       color: 'text-accent',
       bgColor: 'bg-accent/10',
     },
@@ -309,7 +309,7 @@ export default function ContactUsPage() {
         </div>
       </Section>
 
-      {/* Map Section - Placeholder */}
+      {/* Map Section */}
       <Section shade="secondary">
         <div className="text-center space-y-4 mb-12">
           <Badge variant="outline" className="mx-auto w-fit">
@@ -324,17 +324,15 @@ export default function ContactUsPage() {
 
         <FadeIn delay={0.1}>
           <Card className="overflow-hidden border-2 shadow-lg">
-            <div className="relative h-[400px] bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <div className="h-20 w-20 rounded-2xl bg-primary/10 mx-auto flex items-center justify-center mb-4">
-                  <MapPin className="h-10 w-10 text-primary" />
-                </div>
-                <div>
-                  <p className="text-lg font-semibold mb-2">Map integration placeholder</p>
-                  <p className="text-muted-foreground">123 Seva Street, Mumbai, Maharashtra 400001</p>
-                  <p className="text-sm text-muted-foreground mt-2">India</p>
-                </div>
-              </div>
+            <div className="w-full overflow-hidden rounded-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56774.207058347034!2d73.68332233393394!3d27.20696737680514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396a9170adb7a653%3A0x6940f47129cdaa6e!2sNagaur%2C%20Rajasthan%20341001!5e0!3m2!1sen!2sin!4v1718101694882!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                allowFullScreen
+                loading="lazy"
+                className="border-0 rounded-lg"
+              ></iframe>
             </div>
           </Card>
         </FadeIn>

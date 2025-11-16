@@ -257,11 +257,11 @@ export default function HomePage() {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <StaggerItem key={index}>
-              <Card className="border-2 hover:border-primary hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6 space-y-4">
+              <Card className="border-2 hover:border-primary hover:shadow-lg transition-all duration-300 h-full">
+                <CardContent className="p-6 space-y-4 h-full flex flex-col">
                   <div className="text-5xl">{service.icon}</div>
                   <h3 className="text-xl font-semibold">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
+                  <p className="text-muted-foreground flex-1">{service.description}</p>
                 </CardContent>
               </Card>
             </StaggerItem>

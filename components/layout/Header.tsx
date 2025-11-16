@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Phone, Mail, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -59,18 +60,18 @@ export default function Header() {
           <div className="flex items-center justify-between py-2 gap-2 text-sm">
             <div className="flex items-center gap-2 sm:gap-4">
               <a
-                href="tel:+919876543210"
+                href="tel:+919460522700"
                 className="flex items-center gap-1 sm:gap-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span className="hidden sm:inline">+91 98765 43210</span>
+                <span className="hidden sm:inline">+91 94605 22700</span>
               </a>
               <a
-                href="mailto:contact@saiseva.org"
+                href="mailto:saisevasamiti.nagaur@gmail.com"
                 className="flex items-center gap-1 sm:gap-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                <span className="hidden md:inline">contact@saiseva.org</span>
+                <span className="hidden md:inline">saisevasamiti.nagaur@gmail.com</span>
               </a>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
@@ -97,8 +98,15 @@ export default function Header() {
             href="/"
             className="flex items-center gap-2 font-bold text-xl text-primary hover:opacity-80 transition-opacity"
           >
-            <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
-              <Heart className="h-6 w-6" />
+            <div className="h-14 w-14 relative rounded-full overflow-hidden">
+              <Image
+                src="/images/logo-image.jpg"
+                alt="Sai Seva Samiti Logo"
+                fill
+                className="object-cover"
+                quality={100}
+                priority
+              />
             </div>
             <span className="hidden sm:inline">Sai Seva Samiti</span>
           </Link>
@@ -154,8 +162,15 @@ export default function Header() {
                 className="flex items-center gap-2 font-bold text-xl text-primary"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
-                  <Heart className="h-6 w-6" />
+                <div className="h-14 w-14 relative rounded-full overflow-hidden">
+                  <Image
+                    src="/images/logo-image.jpg"
+                    alt="Sai Seva Samiti Logo"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                    priority
+                  />
                 </div>
                 <span>Sai Seva Samiti</span>
               </Link>
@@ -192,18 +207,18 @@ export default function Header() {
             <div className="border-t border-border p-6 space-y-4">
               <div className="grid grid-cols-1 gap-4">
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919460522700"
                   className="flex items-center gap-4 px-4 py-3 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
                 >
                   <Phone className="h-5 w-5" />
-                  <span>+91 98765 43210</span>
+                  <span>+91 94605 22700</span>
                 </a>
                 <a
-                  href="mailto:contact@saiseva.org"
+                  href="mailto:saisevasamiti.nagaur@gmail.com"
                   className="flex items-center gap-4 px-4 py-3 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
                 >
                   <Mail className="h-5 w-5" />
-                  <span>contact@saiseva.org</span>
+                  <span>saisevasamiti.nagaur@gmail.com</span>
                 </a>
               </div>
               <Link href="/donate" onClick={() => setMobileMenuOpen(false)}>

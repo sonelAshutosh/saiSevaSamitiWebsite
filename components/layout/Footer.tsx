@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -22,10 +23,10 @@ const resources = [
 ]
 
 const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Facebook, href: 'https://www.facebook.com/', label: 'Facebook' },
+  { icon: Twitter, href: 'https://x.com/', label: 'Twitter' },
+  { icon: Instagram, href: 'https://www.instagram.com/', label: 'Instagram' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/', label: 'LinkedIn' },
 ]
 
 export default function Footer() {
@@ -73,8 +74,14 @@ export default function Footer() {
           {/* About Section */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-              <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
-                <Heart className="h-6 w-6" />
+              <div className="h-14 w-14 relative rounded-full overflow-hidden">
+                <Image
+                  src="/images/logo-image.jpg"
+                  alt="Sai Seva Samiti Logo"
+                  fill
+                  className="object-cover"
+                  quality={100}
+                />
               </div>
               <span>Sai Seva Samiti</span>
             </Link>
@@ -138,18 +145,20 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 text-primary flex-shrink-0" />
-                <span>123 Seva Street, Mumbai, Maharashtra 400001</span>
+                <a href="https://maps.app.goo.gl/UWa7egPUuGz5jSnv8" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  Nagaur, Rajasthan 341001
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-primary transition-colors">
-                  +91 98765 43210
+                <a href="tel:+919460522700" className="hover:text-primary transition-colors">
+                  +91 94605 22700
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                <a href="mailto:contact@saiseva.org" className="hover:text-primary transition-colors">
-                  contact@saiseva.org
+                <a href="mailto:saisevasamiti.nagaur@gmail.com" className="hover:text-primary transition-colors">
+                  saisevasamiti.nagaur@gmail.com
                 </a>
               </div>
             </div>

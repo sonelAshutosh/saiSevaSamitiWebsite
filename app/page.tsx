@@ -248,7 +248,7 @@ export default function HomePage() {
       </Section>
 
       {/* Services Section */}
-      <Section>
+      <Section shade="primary">
         <div className="text-center space-y-4 mb-12">
           <Badge variant="outline" className="mx-auto w-fit">
             What We Do
@@ -278,7 +278,7 @@ export default function HomePage() {
       </Section>
 
       {/* Vision & Mission Section */}
-      <Section className="bg-muted/30">
+      <Section shade="accent">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card className="border-2 border-primary/20 shadow-lg">
             <CardContent className="p-8 space-y-4">
@@ -312,7 +312,7 @@ export default function HomePage() {
 
       {/* Recent Campaigns Section */}
       {isLoading ? (
-        <Section>
+        <Section shade="secondary">
           <div className="flex items-center justify-between mb-12">
             <div>
               <Badge variant="outline" className="mb-4">
@@ -337,7 +337,7 @@ export default function HomePage() {
           </div>
         </Section>
       ) : recentCampaigns.length > 0 ? (
-        <Section>
+        <Section shade="secondary">
           <div className="flex items-center justify-between mb-12">
             <div>
               <Badge variant="outline" className="mb-4">
@@ -397,7 +397,7 @@ export default function HomePage() {
 
       {/* Team Section */}
       {isLoading ? (
-        <Section className="bg-muted/30">
+        <Section shade="muted">
           <div className="text-center space-y-4 mb-12">
             <Badge variant="outline" className="mx-auto w-fit">
               Our Team
@@ -419,7 +419,7 @@ export default function HomePage() {
           </div>
         </Section>
       ) : topMembers.length > 0 ? (
-        <Section className="bg-muted/30">
+        <Section shade="muted">
           <div className="text-center space-y-4 mb-12">
             <Badge variant="outline" className="mx-auto w-fit">
               Our Team

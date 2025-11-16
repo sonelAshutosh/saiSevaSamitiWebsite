@@ -104,6 +104,7 @@ export async function createDonator(data: {
     })
 
     revalidatePath('/admin/donators')
+    revalidatePath('/donate')
 
     return {
       success: true,
@@ -196,6 +197,7 @@ export async function updateDonator(
     await donator.save()
 
     revalidatePath('/admin/donators')
+    revalidatePath('/donate')
 
     return {
       success: true,
@@ -245,6 +247,7 @@ export async function deleteDonator(donatorId: string): Promise<{
     }
 
     revalidatePath('/admin/donators')
+    revalidatePath('/donate')
 
     return {
       success: true,

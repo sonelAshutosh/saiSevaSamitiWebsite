@@ -225,6 +225,23 @@
     @apply py-12 md:py-16 lg:py-20;
   }
 
+  /* Section divider - subtle accent color shades */
+  .section-shade-primary {
+    @apply bg-primary/5;
+  }
+
+  .section-shade-secondary {
+    @apply bg-secondary/5;
+  }
+
+  .section-shade-accent {
+    @apply bg-accent/5;
+  }
+
+  .section-shade-muted {
+    @apply bg-muted/30;
+  }
+
   /* Container */
   .container-custom {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;

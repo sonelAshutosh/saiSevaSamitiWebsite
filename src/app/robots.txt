@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-  
-Sitemap: https://sai-seva-samiti.vercel.app/sitemap.xml
